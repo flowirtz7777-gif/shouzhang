@@ -7,6 +7,7 @@ import {
   getPracticeDb,
   invalidateDraftWrites,
 } from "./db";
+import { publicUrl } from "./publicPaths";
 
 const assetBlobCache = new Map<string, Blob>();
 
@@ -91,7 +92,7 @@ export class DraftRepository implements ContentRepository, AssetRepository {
         .filter((entry): entry is [AssetVariantName, { path: string }] => Boolean(entry[1]?.path))
         .map(async ([variant, value]) => {
           try {
-            const response = await fetch(`/content/${value.path}`);
+            const response = await fetch(publicUrl(`content/${value.path}`));
             if (!response.ok) return;
             await this.put(asset.id, variant, await response.blob());
           } catch {

@@ -83,6 +83,22 @@ npm run preview
 | `npm run lint` | 运行 ESLint |
 | `npm test` | 运行单元与组件测试 |
 
+## 发布到 GitHub Pages（让队员通过网址访问）
+
+仓库已内置 GitHub Actions 自动部署工作流（`.github/workflows/deploy-pages.yml`）：
+
+1. 在 GitHub 新建**私有仓库**（如 `shouzhang`），不要勾选自动初始化 README；
+2. 把本目录代码推送到仓库的 `main` 分支；
+3. 打开仓库 **Settings → Pages**，Source 选择 **GitHub Actions**；
+4. 之后每次推送 `main`，页面会自动重新构建发布，地址为 `https://<用户名>.github.io/<仓库名>/`。
+
+内容更新流程（静态发布版为只读，编辑仍在各人浏览器本地）：
+
+- 在页面编辑器里完成修改；
+- 导出 ZIP 发布包；
+- 本地执行 `npm run install:publish -- "<发布包.zip>" "./public/content"`；
+- 提交并推送 `main`，GitHub Actions 会自动更新线上页面。
+
 ## 内容编辑与发布
 
 - 点击页面右上角的铅笔按钮打开内容编辑器。

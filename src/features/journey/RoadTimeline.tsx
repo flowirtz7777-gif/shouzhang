@@ -24,6 +24,7 @@ import {
 import { Link } from "react-router-dom";
 import { IconButton } from "../../components/IconButton";
 import { orderEntries } from "../../domain/orderEntries";
+import { publicUrl } from "../../data/publicPaths";
 import type {
   PracticeAsset,
   PracticeEntry,
@@ -50,8 +51,8 @@ const ROAD_SCROLL_BASE_DURATION_MS = 190;
 const ROAD_SCROLL_PER_STATION_MS = 190;
 const ROAD_SCROLL_MAX_DURATION_MS = 1450;
 // 待替换：参考图到位后，把这里换成动车组侧视图与铁路背景素材。
-const VEHICLE_URL = "/ui-assets/train-side.webp";
-const FIELD_PANORAMA_URL = "/ui-assets/rail-bg.webp";
+const VEHICLE_URL = publicUrl("ui-assets/train-side.webp");
+const FIELD_PANORAMA_URL = publicUrl("ui-assets/rail-bg.webp");
 const ROAD_SCROLL_STORAGE_KEY = "social-practice-journey-scroll-left";
 
 // 铁路视觉常量：双轨间距、接触网高度与立柱高度（viewBox 坐标）。
@@ -107,7 +108,7 @@ function formatDate(date: string): string {
 function publicAssetPath(path?: string): string | undefined {
   if (!path) return undefined;
   if (/^(?:https?:|blob:|data:|\/)/.test(path)) return path;
-  return `/content/${path.replace(/^\.\//, "")}`;
+  return publicUrl(`content/${path.replace(/^\.\//, "")}`);
 }
 
 function entryThumbnail(

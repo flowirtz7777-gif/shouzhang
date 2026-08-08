@@ -1,8 +1,9 @@
 import { publishedProjectSchema } from "../domain/practiceSchema";
 import type { ContentRepository } from "./contentRepository";
+import { publicUrl } from "./publicPaths";
 
 export class PublishedRepository implements ContentRepository {
-  constructor(private readonly url = "/content/practice.json") {}
+  constructor(private readonly url = publicUrl("content/practice.json")) {}
 
   async load() {
     const response = await fetch(this.url, { cache: "no-cache" });

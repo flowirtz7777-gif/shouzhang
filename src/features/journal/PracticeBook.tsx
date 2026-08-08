@@ -35,6 +35,7 @@ import {
   revokeResolvedAssetUrl,
 } from "../../data/assetResolver";
 import { orderEntries } from "../../domain/orderEntries";
+import { publicUrl } from "../../data/publicPaths";
 import type {
   AssetVariantName,
   PracticeEntry,
@@ -86,7 +87,7 @@ interface JournalPhotoPreview {
 function getPublishedAssetPath(path: string | undefined): string | undefined {
   if (!path) return undefined;
   if (/^(?:https?:|blob:|data:)/.test(path) || path.startsWith("/")) return path;
-  return `/content/${path.replace(/^\/+/, "")}`;
+  return publicUrl(`content/${path.replace(/^\/+/, "")}`);
 }
 
 function useAssetUrl(

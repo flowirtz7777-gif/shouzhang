@@ -1,6 +1,8 @@
 import type { AssetVariantName } from "../domain/practice";
 
-export const MISSING_ASSET_PATH = "/ui-assets/missing-image.webp";
+import { publicUrl } from "./publicPaths";
+
+export const MISSING_ASSET_PATH = publicUrl("ui-assets/missing-image.webp");
 
 export interface ResolveAssetInput {
   assetId: string;

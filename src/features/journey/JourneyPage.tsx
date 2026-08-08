@@ -2,6 +2,7 @@ import { Bookmark, CalendarRange, Camera, MapPinned } from "lucide-react";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { useSearchParams } from "react-router-dom";
 import { resolveAssetUrl, revokeResolvedAssetUrl } from "../../data/assetResolver";
+import { publicUrl } from "../../data/publicPaths";
 import { orderEntries } from "../../domain/orderEntries";
 import type { PracticeAsset, PracticePhase } from "../../domain/practice";
 import { usePractice } from "../../app/PracticeContext";
@@ -10,7 +11,7 @@ import { RoadTimeline, type RoadTimelineHandle } from "./RoadTimeline";
 function publicAssetPath(path?: string): string | undefined {
   if (!path) return undefined;
   if (/^(?:https?:|blob:|data:|\/)/.test(path)) return path;
-  return `/content/${path.replace(/^\.\//, "")}`;
+  return publicUrl(`content/${path.replace(/^\.\//, "")}`);
 }
 
 function projectDateRange(startDate: string, endDate?: string): string {

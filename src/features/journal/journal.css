@@ -14,7 +14,7 @@
   z-index: 0;
   width: 340px;
   height: 185px;
-  background: url("/ui-assets/journal-stickers.png") center / contain no-repeat;
+  background: var(--journal-stickers-url) center / contain no-repeat;
   content: "";
   opacity: 0.1;
   pointer-events: none;
@@ -310,7 +310,7 @@
   bottom: -48px;
   width: 230px;
   height: 145px;
-    background: url("/ui-assets/journal-stickers.png") center / contain no-repeat;
+  background: var(--journal-stickers-url) center / contain no-repeat;
   content: "";
   opacity: 0.07;
   pointer-events: none;
