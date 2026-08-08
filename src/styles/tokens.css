@@ -1,0 +1,14 @@
+:root {
+  color: #30352f;
+  background: #fff3d2;
+  font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+  --paper: #fff3d2;
+  --sky: #dff1e8;
+  --ink: #30312f;
+  --yellow: #f1c659;
+  --coral: #ee785b;
+  --green: #8fbd78;
+  --teal: #70b5ad;
+  --border: 3px solid var(--ink);
+  --hard-shadow: 5px 5px 0 rgb(48 49 47 / 18%);
+}
